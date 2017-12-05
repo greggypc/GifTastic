@@ -24,17 +24,39 @@ var topics = ["Trees", "Fish", "Hair Bands", "Trains", "Armadillos"];
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var topicImage = $("<img>");
-            topicImage.attr("src", results[i].images.fixed_height_still.url);
+            var topicImageStill = $("<img>");
+            topicImageStill.attr("src", results[i].images.fixed_height_still.url).attr("data-state", "still");
+
+            //topicImageStill.attr({src: results[i].images.fixed_height_still.url, data-state: "still"});
+
+            //( { title:"Test", alt:"Test2" } );
+            
+            var topicImageAnimate = $("<img>");
+            topicImageAnimate.attr("src", results[i].images.fixed_height.url).attr("data-state", "animate");
+
+             //topicImageAnimate.attr({src: results[i].images.fixed_height.url, data-state: "animate"});
 
             gifDiv.prepend(p);
-            gifDiv.prepend(topicImage);
+            gifDiv.prepend(topicImageStill);
 
             $("#gifs-appear-here").prepend(gifDiv);
           }
         });
 
+        $("#gifs-appear-here").on("click", function() {
+      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+      var state = $(this).attr("data-state");
+     
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("src", "results[i].images.fixed_height.url"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("src", "results[i].images.fixed_height_still.url"));
+        $(this).attr("data-state", "still");
       }
+    });
+
+      } // end function displayTopics
 
 
 function renderButtons() {
@@ -52,33 +74,20 @@ function renderButtons() {
         event.preventDefault();
         var topic = $("#topicInput").val().trim();
         topics.push(topic);
-        $("#topivInput").val('');  // clears the text input box after click - ready for next input
+        $("#topicInput").val('');  // clears the text input box after click - ready for next input
 
         renderButtons();
 
       });
 
-      // Adding click event listeners to all elements with a class of "movie"
+      // Adding click event listeners to all elements with a class of "topic"
       $(document).on("click", ".topic", displayTopics);
       
       // Calling the renderButtons function to display the intial buttons
       renderButtons();
 
 
-$("#topicsView").on("click", function() {
-      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-      } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-      }
-    });
+
 
 
 
@@ -106,7 +115,7 @@ $("#topicsView").on("click", function() {
 //          );
 
 
-// [9:33] 
+
 // $("#movies-view").prepend(
 //           `<h1>${response.Title}</h1>
 //            <div>${response.Rated}</div>
