@@ -1,0 +1,22 @@
+/*Trivia Game Style*/
+
+body {
+    
+    font-size: 24px;
+    text-align: center;
+    background-color: gray;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+ button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+
+.container {
+    background-color: white;
+}
+
