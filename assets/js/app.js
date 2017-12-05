@@ -8,12 +8,12 @@ var topics = ["Trees", "Fish", "Hair Bands", "Trains", "Armadillos"];
         var topic = $(this).attr("data-name");
          var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-
-        // Creates AJAX call for the specific movie button being clicked
         $.ajax({
           url: queryURL,
           method: "GET"
         }).done(function(response) {
+
+          $("#gifs-appear-here").empty();
 
           var results = response.data;
 
@@ -61,7 +61,6 @@ var topics = ["Trees", "Fish", "Hair Bands", "Trains", "Armadillos"];
 
 function renderButtons() {
 
-        // Deletes previous movies for this turn
         $("#buttonsToScreen").empty();
         for (var i = 0; i < topics.length; i++) {
           var a = $("<button>");
