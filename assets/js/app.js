@@ -1,6 +1,6 @@
 //GifTastic
 
-var topics = ["Trees", "Fish", "Hair Bands", "Trains", "Armadillos"];
+var topics = ["Trees", "Fish", "Dark Tower", "Trains", "Armadillos"];
 
  function displayTopics() {      //dc6zaTOxFJmzC
 
@@ -59,7 +59,7 @@ function renderButtons() {
          if ($("#topicInput").val() == "") {
           return;
          }
-         
+
         var topic = $("#topicInput").val().trim();
         topics.push(topic);
         $("#topicInput").val('');  // clears the text input box after click - ready for next input
