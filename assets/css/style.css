@@ -11,18 +11,17 @@ body {
 }
 
  button, input, #topicInput {
-      margin: 25px;
+      margin: 20px 15px 10px 15px;
       padding: 10px;
-      background-color: #1C2833;
-      border-color: red;
+      background-color: #355777;
+      border-color: #6b5e5e;
       color: #e9e9e9;
     }
 
 #topicInput {
-      margin: 10px;
+      margin: 20px 0 10px 0;
       padding: 6px;
-      background-color: #1C2833;
-      border-color: #e9e9e9;
+      background-color: #465f75;
       color: #e9e9e9;
     }
 
@@ -38,6 +37,10 @@ h1 {
 h3 {
     font-size: 24px;
     padding: 10px 0 20px 0;
+}
+
+h2 {
+    padding: 15px;
 }
 
 .item {
